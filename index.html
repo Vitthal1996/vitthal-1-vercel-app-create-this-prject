@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitthal Kolpe | Sr. UI/UX Designer & Digital Product Designer</title>
+  <meta name="description" content="Senior UI/UX Designer with 6 years of experience crafting user-centric web and mobile interfaces across Telecom, Fintech, E-Commerce, and Enterprise applications. Immediate Joiner.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%22><text y=%2222%22 font-size=%2222%22 fill=%22%23FF6422%22 font-weight=%22bold%22>VK</text></svg>">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Permanent Light Theme & Preloader Enforcer -->
+  <script>
+    (function() {
+      try {
+        localStorage.removeItem('vitthal_theme');
+        localStorage.setItem('vitthal_theme', 'light');
+      } catch (e) {}
+      document.documentElement.setAttribute('data-theme', 'light');
+
+      try {
+        var seen = sessionStorage.getItem('vk_cinematic_intro_viewed');
+        var params = new URLSearchParams(window.location.search);
+        var force = params.has('intro') || params.has('replay');
+        if (!seen || force) {
+          document.documentElement.classList.add('preloader-active');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Cinematic Sparkles Intro Preloader
+       ========================================================================== -->
+  <div class="cinematic-preloader" id="cinematicPreloader" aria-hidden="true">
+    <!-- Cinema Letterbox Bars -->
+    <div class="cinema-bar cinema-bar-top" id="cinemaBarTop"></div>
+    <div class="cinema-bar cinema-bar-bottom" id="cinemaBarBottom"></div>
+
+    <!-- HTML5 Canvas for Converging Sparkles, Stars & Trails -->
+    <canvas id="preloaderSparklesCanvas" class="preloader-sparkles-canvas"></canvas>
+
+    <!-- Radial Ambient Glow & Vignette -->
+    <div class="preloader-ambient-glow"></div>
+
+    <!-- Central Stage: Cinematic Typography -->
+    <div class="preloader-stage" id="preloaderStage">
+      <!-- Decorative Sparkle Flares -->
+      <span class="cinematic-sparkle-star cs-star-1">✦</span>
+      <span class="cinematic-sparkle-star cs-star-2">★</span>
+      <span class="cinematic-sparkle-star cs-star-3">✦</span>
+      <span class="cinematic-sparkle-star cs-star-4">★</span>
+      <span class="cinematic-sparkle-star cs-star-5">✦</span>
+
+      <div class="preloader-title-card" id="preloaderTitleCard">
+        <h1 class="preloader-hero-text" id="preloaderHeroText">
+          <span class="preloader-line-welcome">Welcome to</span>
+          <span class="preloader-line-portfolio">Vitthal's Portfolio</span>
+        </h1>
+
+        <div class="preloader-energy-bar">
+          <div class="energy-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flying Clone Label for the Morph Transition -->
+    <div class="preloader-flying-label" id="preloaderFlyingLabel" aria-hidden="true">
+      <span class="p-flight-star">✦</span>
+      <span class="p-flight-text">Welcome to Vitthal's Portfolio</span>
+    </div>
+  </div>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement-bar">
+    <span class="announcement-badge"><span class="pulse-dot"></span> Immediate Joiner</span>
+    <span class="announcement-text-desktop">Sr. UI/UX & Digital Product Designer • 6 Years Exp. • Open to High-Impact Opportunities</span>
+    <span class="announcement-text-mobile">Sr. Designer • 6 Yrs</span>
+    <a href="#contact" class="announcement-link open-contact-modal">Hire Vitthal →</a>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-container">
+      <div class="brand-block" id="headerBrandBlock">
+        <span class="brand-welcome-tiny" id="brandWelcomeTiny" title="Click to replay cinematic intro">
+          <span class="brand-welcome-star">✦</span> Welcome to Vitthal's Portfolio
+        </span>
+        <a href="#" class="brand-logo" title="Vitthal Kolpe Home">
+          <span>VK</span><span class="brand-dot">.</span>
+          <span class="brand-tag">UI/UX</span>
+        </a>
+      </div>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#sandbox" class="nav-link">UI Sandbox</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <span class="nav-indicator-line" id="navIndicatorLine" aria-hidden="true"></span>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-header-cta open-contact-modal" id="headerCtaBtn">
+          <span>Let's Talk</span>
+          <span>→</span>
+        </button>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container: Switched dynamically between Home and Case Study -->
+  <div class="portfolio-home-view" id="portfolioHomeView">
+    <main class="main-layout">
+
+      <!-- ==========================================================================
+           Hero Section: Centered Editorial Layout with UX/UI Doodles & Animated Cursors
+           ========================================================================== -->
+      <section class="hero-section hero-centered-section" id="home">
+        <!-- Background UX & UI Designing Doodles Layer (Light, Airy, Subtle & Animated) -->
+        <div class="hero-doodles-container light-mode-airy" id="heroDoodlesLayer" aria-hidden="true">
+          
+          <!-- Doodle 1: Top-Left Delicate Vector Bezier Spline -->
+          <div class="light-doodle doodle-vector-curve float-subtle-1" data-speed="0.025">
+            <svg class="light-curve-svg" viewBox="0 0 170 70" fill="none">
+              <path d="M10 55 C45 10 125 10 160 55" stroke="rgba(255, 100, 34, 0.45)" stroke-width="1.5" stroke-dasharray="4 4" class="anim-dash-path"/>
+              <line x1="10" y1="55" x2="45" y2="10" stroke="rgba(24, 24, 27, 0.15)" stroke-width="1"/>
+              <line x1="160" y1="55" x2="125" y2="10" stroke="rgba(24, 24, 27, 0.15)" stroke-width="1"/>
+              <circle cx="45" cy="10" r="3" fill="#FF6422"/>
+              <circle cx="125" cy="10" r="3" fill="#FF6422"/>
+              <rect x="7" y="52" width="6" height="6" fill="var(--bg-surface)" stroke="#FF6422" stroke-width="1.2"/>
+              <rect x="157" y="52" width="6" height="6" fill="var(--bg-surface)" stroke="#FF6422" stroke-width="1.2"/>
+            </svg>
+            <span class="light-doodle-label">❖ Vector Spline</span>
+          </div>
+
+          <!-- Doodle 2: Bottom-Left Translucent UI Wireframe Card -->
+          <div class="light-doodle doodle-wireframe-card float-subtle-2" data-speed="-0.02">
+            <div class="light-wf-header">
+              <span class="wf-dot"></span>
+              <span class="wf-dot"></span>
+              <span class="wf-tag">UI Wireframe</span>
+            </div>
+            <div class="light-wf-bars">
+              <div class="wf-bar bar-1"></div>
+              <div class="wf-bar bar-2"></div>
+            </div>
+          </div>
+
+          <!-- Doodle 3: Top-Right Auto-Layout Frame with Animated Figma Cursors -->
+          <div class="light-doodle doodle-cursor-scene float-subtle-1" data-speed="0.03">
+            <div class="light-comp-tag">
+              <span class="comp-gem">❖</span>
+              <span>Auto-Layout Frame</span>
+            </div>
+
+            <!-- Animated Figma Multiplayer Cursor: Orange (Vitthal Kolpe - Digital Product Designer) -->
+            <div class="animated-figma-cursor cursor-vitthal" id="animCursorVitthal" role="button" tabindex="0" title="Click me! Vitthal Kolpe's interactive cursor">
+              <svg class="figma-arrow-svg" viewBox="0 0 18 24" fill="none">
+                <path d="M0 0 L16 12 L7.5 13.5 L12 22 L8.5 23.5 L4 15 L0 18.5 Z" fill="#FF6422" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+              <div class="cursor-tag tag-vitthal">
+                <span class="c-avatar">⚡</span>
+                <span class="c-name">Vitthal Kolpe</span>
+              </div>
+              <span class="cursor-click-ring"></span>
+              <span class="cursor-click-ring ring-echo"></span>
+            </div>
+
+            <!-- Second Animated Collaborator Cursor: Blue (UX Designer) -->
+            <div class="animated-figma-cursor cursor-collab" id="animCursorCollab" role="button" tabindex="0" title="UX Designer Collaborator">
+              <svg class="figma-arrow-svg" viewBox="0 0 18 24" fill="none">
+                <path d="M0 0 L16 12 L7.5 13.5 L12 22 L8.5 23.5 L4 15 L0 18.5 Z" fill="#0284C7" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+              <div class="cursor-tag tag-collab">
+                <span class="c-avatar">🎨</span>
+                <span class="c-name">UX Designer</span>
+              </div>
+              <span class="cursor-click-ring ring-collab"></span>
+            </div>
+          </div>
+
+          <!-- Doodle 4: Bottom-Right Lightweight Design Tokens Badge -->
+          <div class="light-doodle doodle-token-badge float-subtle-3" data-speed="-0.025">
+            <span class="token-sparkle">✦</span>
+            <span>Design Tokens • WCAG AA</span>
+          </div>
+
+          <!-- Subtle Ambient Design Crosshairs -->
+          <span class="ambient-subtle c-mark-1">+</span>
+          <span class="ambient-subtle c-mark-2">+</span>
+        </div>
+
+        <!-- Interactive Technology Sparkles with Hover & Click Micro-Interactions -->
+        <div class="hero-tech-sparkles-layer" id="heroTechSparkles" aria-label="Interactive Technology Highlights">
+          
+          <!-- Sparkle 1: AI Acceleration (Top-Left of Hero Name) -->
+          <div class="tech-sparkle-node sparkle-node-1" role="button" tabindex="0" data-tech="AI Acceleration" data-toast="✨ AI Acceleration: Claude AI • Lovable • Figma Make" aria-label="Technology Sparkle: AI Acceleration">
+            <div class="sparkle-aura"></div>
+            <div class="sparkle-burst-ring"></div>
+            <div class="sparkle-icon-wrap">
+              <svg class="tech-sparkle-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="sparkle-diamond" d="M12 0 C12.8 6.5 17.5 11.2 24 12 C17.5 12.8 12.8 17.5 12 24 C11.2 17.5 6.5 12.8 0 12 C6.5 11.2 11.2 6.5 12 0 Z" fill="currentColor"/>
+                <circle class="sparkle-core" cx="12" cy="12" r="2.5" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <div class="sparkle-glint glint-1"></div>
+            <div class="sparkle-glint glint-2"></div>
+            <div class="sparkle-tooltip" role="tooltip">
+              <div class="sparkle-tooltip-header">
+                <span class="sparkle-tag-pill">✨ AI CRAFT</span>
+                <span class="sparkle-click-hint">Hover / Click</span>
+              </div>
+              <strong class="sparkle-tooltip-title">AI-Accelerated UX</strong>
+              <p class="sparkle-tooltip-desc">Claude AI • Lovable • Figma Make. Compressing ideation and prototype turnarounds from weeks to days.</p>
+            </div>
+          </div>
+
+          <!-- Sparkle 2: 60 FPS Micro-Interactions (Top-Right of Hero Name) -->
+          <div class="tech-sparkle-node sparkle-node-2" role="button" tabindex="0" data-tech="Micro-Interactions" data-toast="⚡ Micro-Interactions: Fluid physics, spring curves & haptics" aria-label="Technology Sparkle: Micro-Interactions">
+            <div class="sparkle-aura"></div>
+            <div class="sparkle-burst-ring"></div>
+            <div class="sparkle-icon-wrap">
+              <svg class="tech-sparkle-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="sparkle-diamond" d="M12 0 C12.8 6.5 17.5 11.2 24 12 C17.5 12.8 12.8 17.5 12 24 C11.2 17.5 6.5 12.8 0 12 C6.5 11.2 11.2 6.5 12 0 Z" fill="currentColor"/>
+                <circle class="sparkle-core" cx="12" cy="12" r="2.5" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <div class="sparkle-glint glint-1"></div>
+            <div class="sparkle-glint glint-2"></div>
+            <div class="sparkle-tooltip" role="tooltip">
+              <div class="sparkle-tooltip-header">
+                <span class="sparkle-tag-pill">⚡ MOTION</span>
+                <span class="sparkle-click-hint">60 FPS</span>
+              </div>
+              <strong class="sparkle-tooltip-title">Micro-Interactions</strong>
+              <p class="sparkle-tooltip-desc">Delightful micro-states, reactive haptic indicators, and spring-damped cursor tracking.</p>
+            </div>
+          </div>
+
+          <!-- Sparkle 3: Design Tokens (Mid-Left flanking Bio) -->
+          <div class="tech-sparkle-node sparkle-node-3" role="button" tabindex="0" data-tech="Design Tokens" data-toast="◈ Design Tokens: Figma variables, semantic tokens & components" aria-label="Technology Sparkle: Design Tokens">
+            <div class="sparkle-aura"></div>
+            <div class="sparkle-burst-ring"></div>
+            <div class="sparkle-icon-wrap">
+              <svg class="tech-sparkle-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="sparkle-diamond" d="M12 0 C12.8 6.5 17.5 11.2 24 12 C17.5 12.8 12.8 17.5 12 24 C11.2 17.5 6.5 12.8 0 12 C6.5 11.2 11.2 6.5 12 0 Z" fill="currentColor"/>
+                <circle class="sparkle-core" cx="12" cy="12" r="2.5" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <div class="sparkle-glint glint-1"></div>
+            <div class="sparkle-tooltip" role="tooltip">
+              <div class="sparkle-tooltip-header">
+                <span class="sparkle-tag-pill">◈ SYSTEMS</span>
+                <span class="sparkle-click-hint">Variables</span>
+              </div>
+              <strong class="sparkle-tooltip-title">Design Token Governance</strong>
+              <p class="sparkle-tooltip-desc">Strict Figma variables and atomic components ensuring zero rogue hex codes across engineering sprints.</p>
+            </div>
+          </div>
+
+          <!-- Sparkle 4: Heuristic Audits (Mid-Right flanking Bio) -->
+          <div class="tech-sparkle-node sparkle-node-4" role="button" tabindex="0" data-tech="Heuristic Audits" data-toast="❖ Heuristic Audits: WCAG 2.1 AA accessibility & usability audits" aria-label="Technology Sparkle: Heuristic Audits">
+            <div class="sparkle-aura"></div>
+            <div class="sparkle-burst-ring"></div>
+            <div class="sparkle-icon-wrap">
+              <svg class="tech-sparkle-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="sparkle-diamond" d="M12 0 C12.8 6.5 17.5 11.2 24 12 C17.5 12.8 12.8 17.5 12 24 C11.2 17.5 6.5 12.8 0 12 C6.5 11.2 11.2 6.5 12 0 Z" fill="currentColor"/>
+                <circle class="sparkle-core" cx="12" cy="12" r="2.5" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <div class="sparkle-glint glint-1"></div>
+            <div class="sparkle-tooltip" role="tooltip">
+              <div class="sparkle-tooltip-header">
+                <span class="sparkle-tag-pill">❖ RESEARCH</span>
+                <span class="sparkle-click-hint">WCAG AA</span>
+              </div>
+              <strong class="sparkle-tooltip-title">Heuristic Audits & WCAG</strong>
+              <p class="sparkle-tooltip-desc">Empirical evaluations, friction triage, and accessible color contrast across all user journeys.</p>
+            </div>
+          </div>
+
+          <!-- Sparkle 5: Product Craft (Bottom-Right near CTA) -->
+          <div class="tech-sparkle-node sparkle-node-5" role="button" tabindex="0" data-tech="Enterprise UX" data-toast="🚀 Enterprise UX: Telecom VAS dashboards & FinTech banking" aria-label="Technology Sparkle: Enterprise UX">
+            <div class="sparkle-aura"></div>
+            <div class="sparkle-burst-ring"></div>
+            <div class="sparkle-icon-wrap">
+              <svg class="tech-sparkle-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="sparkle-diamond" d="M12 0 C12.8 6.5 17.5 11.2 24 12 C17.5 12.8 12.8 17.5 12 24 C11.2 17.5 6.5 12.8 0 12 C6.5 11.2 11.2 6.5 12 0 Z" fill="currentColor"/>
+                <circle class="sparkle-core" cx="12" cy="12" r="2.5" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <div class="sparkle-glint glint-1"></div>
+            <div class="sparkle-tooltip" role="tooltip">
+              <div class="sparkle-tooltip-header">
+                <span class="sparkle-tag-pill">🚀 IMPACT</span>
+                <span class="sparkle-click-hint">Enterprise</span>
+              </div>
+              <strong class="sparkle-tooltip-title">Telecom & FinTech UX</strong>
+              <p class="sparkle-tooltip-desc">High-density data monitoring, real-time alert triage cockpits, and friction-free banking onboarding.</p>
+            </div>
+          </div>
+
+          <!-- Ambient Twinkling Stars (Delicate Glimmers) -->
+          <div class="mini-glimmer-star star-pos-1" aria-hidden="true">✦</div>
+          <div class="mini-glimmer-star star-pos-2" aria-hidden="true">✦</div>
+          <div class="mini-glimmer-star star-pos-3" aria-hidden="true">✦</div>
+          <div class="mini-glimmer-star star-pos-4" aria-hidden="true">✦</div>
+        </div>
+
+        <!-- Centered Main Hero Content -->
+        <div class="hero-centered-content">
+          <div class="hero-badge-pill">
+            <span class="pulse-radar-dot"></span>
+            <span>6 Years Experience • Immediate Joiner</span>
+          </div>
+
+          <h1 class="hero-name centered-title">
+            Vitthal <span class="highlight-orange">Kolpe</span>
+          </h1>
+
+          <!-- Moving Animated Designation (Sr. UX UI Designer & Sr. Digital Product designer) -->
+          <h2 class="hero-role-title centered-subtitle" aria-label="Vitthal Kolpe - Sr. UX UI Designer and Sr. Digital Product designer">
+            <span class="moving-role-badge">
+              <span class="moving-sparkle">✦</span>
+              <span class="moving-role-text" id="movingRoleText">Sr. UX UI Designer</span>
+              <span class="moving-role-cursor" aria-hidden="true"></span>
+            </span>
+          </h2>
+
+          <p class="hero-bio centered-bio">
+            Senior Designer translating complex business challenges into engaging, accessible, and intuitive digital products. Expert in the full product lifecycle: from <strong>UX audits and user research</strong> to rapid <strong>AI-accelerated prototyping</strong> and scalable <strong>design systems</strong> across Telecom VAS, FinTech, and Enterprise platforms.
+          </p>
+
+          <div class="hero-cta-group centered-cta">
+            <a href="#work" class="btn-primary-pill">
+              <span>Explore Selected Work</span>
+              <span>→</span>
+            </a>
+            <button class="btn-outline-pill" id="btnOpenResumeModal">
+              <span>View Resume / CV</span>
+              <span>📄</span>
+            </button>
+            <a href="https://www.behance.net/vitthalkolpe" target="_blank" rel="noopener noreferrer" class="btn-outline-pill">
+              <span>Behance</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+          <!-- Quick Stats Highlights Strip (Centered) -->
+          <div class="hero-highlights-strip centered-strip">
+            <div class="stat-chip">
+              <strong>6 Years</strong>
+              <span>Design Experience</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-chip">
+              <strong>30+</strong>
+              <span>Enterprise Projects</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-chip">
+              <strong>100%</strong>
+              <span>User-Centric & Agile</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-chip">
+              <strong style="color: #16A34A;">Available</strong>
+              <span>Immediate Joiner</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           About Me & Profile Summary Section (With 3D Interactive Portrait)
+           ========================================================================== -->
+      <section class="about-section" id="about">
+        <div class="about-grid">
+          <!-- Interactive Profile Portrait in Profile Summary -->
+          <div class="about-portrait-showcase" id="aboutPortraitShowcase">
+            <div class="portrait-card-3d" id="portraitCard3D" role="region" aria-label="Vitthal Kolpe Profile Photo & Interactive Studio">
+              <!-- Ambient Warm Glow Aura -->
+              <div class="portrait-aura-glow"></div>
+
+              <!-- Concentric Rings & Ambient Grid Background -->
+              <div class="portrait-backdrop-art">
+                <div class="art-ring ring-lg"></div>
+                <div class="art-ring ring-md"></div>
+                <div class="art-ring ring-sm"></div>
+              </div>
+
+              <!-- Architectural Arch Pedestal Frame -->
+              <div class="portrait-arch-pedestal" id="portraitArchPedestal">
+                <!-- Figma Blueprint Guides (Visible in Blueprint Mode) -->
+                <div class="blueprint-overlay" id="blueprintOverlay">
+                  <div class="bp-grid-line bp-h1"></div>
+                  <div class="bp-grid-line bp-h2"></div>
+                  <div class="bp-grid-line bp-v1"></div>
+                  <span class="bp-dimension bp-top">W: 340px</span>
+                  <span class="bp-dimension bp-right">H: 440px</span>
+                  <span class="bp-tag bp-radius">R: 170px 170px 28px 28px</span>
+                  <span class="bp-tag bp-color">FILL: #FFF3EB</span>
+                </div>
+
+                <!-- Concentric Radial Sunburst / Arch Lines -->
+                <svg class="arch-sunburst-svg" viewBox="0 0 340 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 220 C40 100 110 40 170 40 C230 40 300 100 300 220" stroke="#FF6422" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="4 6"/>
+                  <path d="M70 240 C70 140 120 90 170 90 C220 90 270 140 270 240" stroke="#FF6422" stroke-opacity="0.2" stroke-width="1.5"/>
+                  <circle cx="170" cy="180" r="120" stroke="#18181B" stroke-opacity="0.06" stroke-width="1.5" stroke-dasharray="6 6"/>
+                </svg>
+
+                <!-- Vitthal's High-Res Cutout Image with Pop-Out 3D Layering -->
+                <div class="portrait-cutout-layer" id="portraitCutoutLayer">
+                  <img
+                    src="vitthal-profile.png"
+                    alt="Vitthal Kolpe - Senior UI/UX Designer & Digital Product Designer"
+                    class="vitthal-photo-cutout"
+                    id="vitthalPhotoCutout"
+                    loading="eager"
+                  />
+                </div>
+
+                <!-- Specular Highlight Sheen (Moves with Mouse) -->
+                <div class="portrait-glare-sheen" id="portraitGlare"></div>
+
+                <!-- Figma Selection Bounding Box & Handles on 4 Corners -->
+                <div class="figma-selection-box">
+                  <span class="f-handle f-tl"></span>
+                  <span class="f-handle f-tr"></span>
+                  <span class="f-handle f-bl"></span>
+                  <span class="f-handle f-br"></span>
+                  <div class="f-handle-chip">VK • Senior UX</div>
+                </div>
+              </div>
+
+              <!-- Floating Interactive Glassmorphism Badges -->
+              <div class="floating-p-badge p-badge-top-right" id="badgeRole" title="Role & Experience">
+                <span class="p-badge-icon">✨</span>
+                <div class="p-badge-info">
+                  <span class="p-badge-title">Sr. Product Designer</span>
+                  <span class="p-badge-sub">6 Yrs • Immediate Joiner</span>
+                </div>
+              </div>
+
+              <div class="floating-p-badge p-badge-bottom-left" id="badgeStatus" title="Immediate Joiner • Hyderabad, Pune, Bangalore & Remote">
+                <span class="live-radar-dot"></span>
+                <div class="p-badge-info">
+                  <span class="p-badge-title">Open to Opportunities</span>
+                  <span class="p-badge-sub">Immediate Joiner • Hyderabad, Pune, Bangalore & Remote</span>
+                </div>
+              </div>
+
+              <div class="floating-p-badge p-badge-bottom-right" id="badgeAi" title="AI Prototyping Expertise">
+                <span class="p-badge-icon">⚡</span>
+                <div class="p-badge-info">
+                  <span class="p-badge-title">AI + UX Craft</span>
+                  <span class="p-badge-sub">Claude AI • Lovable • Figma Make</span>
+                </div>
+              </div>
+
+              <!-- Interactive Greeting Speech Bubble (Appears on click or Say Hi) -->
+              <div class="portrait-speech-bubble" id="portraitSpeechBubble" aria-live="polite">
+                <div class="speech-bubble-tail"></div>
+                <div class="speech-bubble-content">
+                  <span class="speech-avatar">👋</span>
+                  <div class="speech-text">
+                    <strong>"Hey, I'm Vitthal!"</strong>
+                    <p>6 years crafting human-centered digital products across Telecom, FinTech & E-Commerce. Let's create impactful experiences!</p>
+                  </div>
+                  <button class="speech-close-btn" id="closeSpeechBtn" aria-label="Close message">×</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive View Modes Toolbar -->
+            <div class="portrait-interactive-toolbar">
+              <button class="p-tool-btn active" id="btnModeStudio" data-mode="studio" title="Studio Portrait Mode">
+                <span class="p-tool-icon">🎨</span>
+                <span class="p-tool-text">Studio View</span>
+              </button>
+              <button class="p-tool-btn" id="btnModeBlueprint" data-mode="blueprint" title="Figma Inspect Blueprint Mode">
+                <span class="p-tool-icon">📐</span>
+                <span class="p-tool-text">Inspect Blueprint</span>
+              </button>
+              <button class="p-tool-btn" id="btnSayHi" title="Click for Interactive Designer Greeting">
+                <span class="p-tool-icon">👋</span>
+                <span class="p-tool-text">Say Hi!</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="about-content-box">
+            <div class="section-title-wrap">
+              <h2 class="section-title">
+                About Me
+                <span class="orange-dash"></span>
+              </h2>
+            </div>
+            <p class="about-lead">
+              Creative and detail-oriented <strong>Senior UI/UX Designer</strong> with almost <strong>6 years of experience</strong> crafting user-centric web and mobile interfaces. Skilled in the full UX lifecycle, including user research, UX audits, wireframing, prototyping, design validation, and usability testing.
+            </p>
+            <p class="about-lead" style="margin-top: -12px; font-size: 0.98rem;">
+              Proficient in translating complex business needs into engaging, intuitive, and accessible designs across domains such as <strong>Telecom, FinTech & Banking, E-Commerce, Healthcare, Job Portals, and Enterprise Applications</strong>. Adept at leveraging modern AI-accelerated design and prototyping tools (<strong>Claude AI, Lovable, Figma Make</strong>) while applying human UX heuristics, accessibility standards (WCAG 2.1 AA), and design system governance.
+            </p>
+
+            <!-- 6 Key Attribute Badges (2x3 Grid matching screenshot) -->
+            <div class="about-attributes-grid">
+              <div class="attribute-card">
+                <span class="attr-icon">💡</span>
+                <span class="attr-label">Problem Solver</span>
+              </div>
+              <div class="attribute-card">
+                <span class="attr-icon">🎯</span>
+                <span class="attr-label">Detail Oriented</span>
+              </div>
+              <div class="attribute-card">
+                <span class="attr-icon">🎨</span>
+                <span class="attr-label">Design System Craft</span>
+              </div>
+              <div class="attribute-card">
+                <span class="attr-icon">🔍</span>
+                <span class="attr-label">UX Audit & Research</span>
+              </div>
+              <div class="attribute-card">
+                <span class="attr-icon">🤝</span>
+                <span class="attr-label">Agile Team Player</span>
+              </div>
+              <div class="attribute-card">
+                <span class="attr-icon">⚡</span>
+                <span class="attr-label">AI-Accelerated Workflow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Skills, Tools & AI Tools Section (Separated into 3 Distinct Parts)
+           ========================================================================== -->
+      <section class="skills-section" id="skills">
+        <div class="section-title-wrap">
+          <div>
+            <h2 class="section-title">
+              Skills, Tools & AI Suite
+              <span class="orange-dash"></span>
+            </h2>
+            <p style="font-size: 0.95rem; color: var(--ink-secondary); margin-top: 6px;">
+              A comprehensive breakdown of design methodologies, industry tools, and AI-accelerated workflows.
+            </p>
+          </div>
+        </div>
+
+        <div class="skills-tools-hub">
+          <!-- Part 1: Skills & Abilities -->
+          <div class="skill-part-block" id="part-skills">
+            <div class="part-header-box">
+              <span class="part-tag-badge">01 / CORE UX PROCESS & METHODOLOGIES</span>
+              <h3 class="part-title-text">Skills & Core Abilities</h3>
+              <p class="part-desc-text">
+                User-centered methodologies refined over 6 years of designing complex telecom portals, banking flows, and high-conversion web/mobile experiences.
+              </p>
+            </div>
+            <div class="core-skills-cards-grid" id="coreSkillsGrid">
+              <!-- Injected via app.js -->
+            </div>
+          </div>
+
+          <!-- Part 2: Design & Prototyping Tools -->
+          <div class="skill-part-block" id="part-tools">
+            <div class="part-header-box">
+              <span class="part-tag-badge">02 / INDUSTRY DESIGN & PROTOTYPING TOOLS</span>
+              <h3 class="part-title-text">Design & Prototyping Tools</h3>
+              <p class="part-desc-text">
+                Industry-standard software utilized for wireframing, high-fidelity UI design, design token architectures, and seamless developer handoff.
+              </p>
+            </div>
+            <div class="tools-card-grid" id="designToolsGrid">
+              <!-- Injected via app.js -->
+            </div>
+          </div>
+
+          <!-- Part 3: AI-Powered Design Tools -->
+          <div class="skill-part-block ai-highlight-block" id="part-ai-tools">
+            <div class="part-header-box">
+              <span class="part-tag-badge ai-tag">03 / ✨ AI DESIGN & GENERATIVE PROTOTYPING SUITE</span>
+              <h3 class="part-title-text">AI Tools & Rapid Acceleration</h3>
+              <p class="part-desc-text">
+                Experienced in leveraging AI-powered design platforms (Claude AI, Lovable, Figma Make) and LLMs to accelerate ideation, generate diverse UI concepts, and compress prototype turnaround from weeks to days—while applying human UX judgment for usability, accessibility (WCAG AA), and brand consistency.
+              </p>
+            </div>
+            <div class="ai-tools-card-grid" id="aiToolsGrid">
+              <!-- Injected via app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Selected Work Section (Matching Screenshot Design)
+           ========================================================================== -->
+      <section class="work-section" id="work">
+        <div class="section-title-wrap">
+          <div>
+            <h2 class="section-title">
+              Selected Work
+              <span class="orange-dash"></span>
+            </h2>
+            <p style="font-size: 0.95rem; color: var(--ink-secondary); margin-top: 6px;">
+              Click any project card to explore the full interactive Case Study with UX research, audits, and wireframes.
+            </p>
+          </div>
+          <a href="https://www.behance.net/vitthalkolpe" target="_blank" rel="noopener noreferrer" class="section-sublink">
+            <span>View All On Behance</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="work-category-filters">
+          <button class="work-filter-btn active" data-filter="all">All Projects</button>
+          <button class="work-filter-btn" data-filter="healthcare">Healthcare</button>
+          <button class="work-filter-btn" data-filter="ecommerce">E-Commerce</button>
+          <button class="work-filter-btn" data-filter="telecom">Telecom VAS</button>
+          <button class="work-filter-btn" data-filter="hrtech">HR Tech & Jobs</button>
+        </div>
+
+        <!-- Projects Cards Grid (Restored Clean 3-Column Card Grid) -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Injected via app.js / projects-data.js -->
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Experience, Certifications & Education Section
+           ========================================================================== -->
+      <section class="experience-section" id="experience">
+        <div class="section-title-wrap">
+          <div>
+            <h2 class="section-title">
+              Experience & Credentials
+              <span class="orange-dash"></span>
+            </h2>
+          </div>
+          <div class="exp-nav-tabs">
+            <button class="exp-tab-btn active" data-tab="work-exp">Work Experience (6 Yrs)</button>
+            <button class="exp-tab-btn" data-tab="certs">Certifications (5)</button>
+            <button class="exp-tab-btn" data-tab="edu">Education (MBA + B.Com)</button>
+          </div>
+        </div>
+
+        <!-- Work Experience Tab Content -->
+        <div class="exp-tab-content" id="tab-work-exp">
+          <div class="timeline-view">
+            <!-- Job 1 -->
+            <div class="exp-card current">
+              <div class="exp-icon-bubble">💼</div>
+              <div class="exp-card-body">
+                <div class="exp-card-header">
+                  <div>
+                    <h3 class="exp-role-title">Sr. UI/UX Designer</h3>
+                    <span class="exp-company">Telcovas Solutions and Services</span>
+                  </div>
+                  <span class="exp-date-pill">Dec 2024 – Oct 2026 (Present)</span>
+                </div>
+                <ul class="exp-bullets">
+                  <li>Led end-to-end UI/UX design for telecom-focused web and mobile applications, ensuring seamless user experiences and alignment with core business objectives.</li>
+                  <li>Spearheaded telecom-specific platforms: VAS dashboards, real-time data monitoring systems, subscriber engagement portals, karaoke applications, and banking/insurance services.</li>
+                  <li>Conducted comprehensive Heuristic UX Audits to evaluate legacy applications, identifying usability gaps, cognitive friction, and navigation bottlenecks.</li>
+                  <li>Executed Design Validations through moderated usability testing, prototype evaluations, and stakeholder reviews before developer handoff.</li>
+                  <li>Leveraged AI-powered design tools (Lovable, Uizard, Stitch) to accelerate ideation and prototype exploration by 30% while maintaining strict Material Design standards.</li>
+                  <li>Built and maintained reusable UI component libraries and design tokens in Figma for rapid cross-functional sprint delivery.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="exp-card">
+              <div class="exp-icon-bubble">💻</div>
+              <div class="exp-card-body">
+                <div class="exp-card-header">
+                  <div>
+                    <h3 class="exp-role-title">UI/UX Designer</h3>
+                    <span class="exp-company">Rabbit and Tortoise Technology</span>
+                  </div>
+                  <span class="exp-date-pill">Dec 2021 – Sep 2024</span>
+                </div>
+                <ul class="exp-bullets">
+                  <li>Designed intuitive, cross-platform interfaces across Job Portals, E-Commerce, Insurance, Banking, Entertainment, and HR Tech domains.</li>
+                  <li>Conducted user research, stakeholder interviews, and competitor analysis to translate user insights into high-conversion designs.</li>
+                  <li>Created wireframes, interactive low/high-fidelity prototypes, and style guides for scalable, cohesive UI components.</li>
+                  <li>Engineered conversion-optimized checkout and onboarding flows that reduced drop-offs by up to 35% in e-commerce and banking applications.</li>
+                  <li>Collaborated closely with front-end engineers and QA teams to maintain pixel-perfect UX consistency across screen viewports.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="exp-card">
+              <div class="exp-icon-bubble">🚀</div>
+              <div class="exp-card-body">
+                <div class="exp-card-header">
+                  <div>
+                    <h3 class="exp-role-title">UI/UX Designer</h3>
+                    <span class="exp-company">Nio Stars Technology</span>
+                  </div>
+                  <span class="exp-date-pill">Nov 2020 – Dec 2021</span>
+                </div>
+                <ul class="exp-bullets">
+                  <li>Collaborated with cross-functional product squads to design engaging UI/UX solutions for web and mobile applications across diverse client projects.</li>
+                  <li>Executed user research, persona development, and user flow mapping to guide effective design decisions.</li>
+                  <li>Created responsive wireframes, interactive Figma prototypes, and final design deliverables supporting the complete product lifecycle.</li>
+                  <li>Contributed to reusable UI component libraries, ensuring visual consistency and brand guideline adherence across client platforms.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications Tab Content -->
+        <div class="exp-tab-content" id="tab-certs" style="display: none;">
+          <div class="certs-grid">
+            <div class="cert-card">
+              <div class="cert-icon">🤖</div>
+              <div class="cert-info">
+                <h4>AI Design Tools for UX Designers</h4>
+                <span class="cert-issuer">Udemy</span>
+                <span class="cert-date">September 2026</span>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">🏆</div>
+              <div class="cert-info">
+                <h4>Product Manager Certification</h4>
+                <span class="cert-issuer">Agile Enterprise Coach London</span>
+                <span class="cert-date">July 2026</span>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">📜</div>
+              <div class="cert-info">
+                <h4>Product Owner Certification</h4>
+                <span class="cert-issuer">Udemy</span>
+                <span class="cert-date">July 2026</span>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">🎓</div>
+              <div class="cert-info">
+                <h4>Foundation of UX Design</h4>
+                <span class="cert-issuer">Google Coursera</span>
+                <span class="cert-date">March 2023</span>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">✒️</div>
+              <div class="cert-info">
+                <h4>UI/UX Designing Diploma</h4>
+                <span class="cert-issuer">Envision Computer Training Institute, Pune</span>
+                <span class="cert-date">February 2020</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Tab Content -->
+        <div class="exp-tab-content" id="tab-edu" style="display: none;">
+          <div class="certs-grid">
+            <div class="cert-card">
+              <div class="cert-icon">🎓</div>
+              <div class="cert-info">
+                <h4>Master of Business Administration in Data Analytics (MBA)</h4>
+                <span class="cert-issuer">D.Y. Patil Management Institute | Mumbai University</span>
+                <span class="cert-date">Jan 2026 – Present</span>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">📚</div>
+              <div class="cert-info">
+                <h4>Bachelor of Commerce (B.Com)</h4>
+                <span class="cert-issuer">Savitribai Phule Pune University</span>
+                <span class="cert-date">June 2017</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           My UX Process Section (Matching Screenshot's 5 Connected Nodes)
+           ========================================================================== -->
+      <section class="process-section" id="process">
+        <div class="section-title-wrap">
+          <div>
+            <h2 class="section-title">
+              My UX Process
+              <span class="orange-dash"></span>
+            </h2>
+            <p style="font-size: 0.95rem; color: var(--ink-secondary); margin-top: 6px;">
+              A structured, user-centered framework blending deep discovery, AI rapid prototyping, and empirical validation.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-roadmap" id="processRoadmap">
+          <!-- Injected via app.js / illustrations.js -->
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Interactive UI Sandbox / Micro-interaction Demo
+           ========================================================================== -->
+      <section class="sandbox-section" id="sandbox">
+        <div class="sandbox-container">
+          <div class="sandbox-header">
+            <h3>🎨 Designer Micro-Interaction Sandbox</h3>
+            <p>Test out live interactive UI states, token variables, and haptic feedback toggles designed by Vitthal.</p>
+          </div>
+          <div class="sandbox-grid">
+            <div class="sandbox-card">
+              <h4>Button Interaction States</h4>
+              <div class="interactive-button-test">
+                <button class="demo-btn primary" onclick="showToast('Primary Action Triggered ✨')">Primary Hover & Lift</button>
+                <button class="demo-btn secondary" onclick="showToast('Ghost Secondary Action 🎯')">Ghost Outline State</button>
+              </div>
+            </div>
+            <div class="sandbox-card">
+              <h4>Micro-Interaction Toggles</h4>
+              <div>
+                <div class="interactive-toggle-row">
+                  <span>Haptic Feedback</span>
+                  <label class="switch">
+                    <input type="checkbox" checked id="demoHapticToggle">
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="interactive-toggle-row">
+                  <span>WCAG High Contrast</span>
+                  <label class="switch">
+                    <input type="checkbox" id="demoContrastToggle" onchange="showToast('High Contrast Mode Toggled')">
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="sandbox-card">
+              <h4>Figma Token System</h4>
+              <p style="font-size: 0.82rem; color: var(--ink-secondary); margin-bottom: 12px;">
+                Strict token hierarchy ensures zero rogue hex codes across engineering sprints.
+              </p>
+              <div style="display: flex; gap: 8px;">
+                <span style="width: 28px; height: 28px; border-radius: 6px; background: #FF6422; border: 1px solid #18181B; display: inline-block;" title="Brand Orange"></span>
+                <span style="width: 28px; height: 28px; border-radius: 6px; background: #18181B; display: inline-block;" title="Ink Charcoal"></span>
+                <span style="width: 28px; height: 28px; border-radius: 6px; background: #FFF3EB; border: 1px solid #FCDDCB; display: inline-block;" title="Peach Tint"></span>
+                <span style="width: 28px; height: 28px; border-radius: 6px; background: #16A34A; display: inline-block;" title="Success Green"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==========================================================================
+         Footer & Contact Section (Matching Screenshot)
+         ========================================================================== -->
+    <footer class="site-footer" id="contact">
+      <div class="main-layout">
+        <div class="footer-top-grid">
+          <div>
+            <h2 class="footer-cta-title">
+              Let's build something <br>
+              <span class="highlight">meaningful together.</span>
+            </h2>
+            <p style="margin-top: 16px; color: var(--ink-secondary); font-size: 1.05rem;">
+              Currently open to full-time Senior UI/UX Designer, Lead Product Designer, and UX Consultant roles.
+              <strong>Immediate Joiner.</strong>
+            </p>
+          </div>
+
+          <div class="footer-contact-items">
+            <div class="contact-item">
+              <span class="ci-icon">✉️</span>
+              <div>
+                <span style="font-size: 0.78rem; display: block; color: var(--ink-muted);">EMAIL ADDRESS</span>
+                <a href="mailto:vitthalkolpe.design@gmail.com">vitthalkolpe.design@gmail.com</a>
+                <button class="copy-btn btn-copy-email">Copy</button>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon">📞</span>
+              <div>
+                <span style="font-size: 0.78rem; display: block; color: var(--ink-muted);">PHONE / WHATSAPP</span>
+                <a href="tel:+919158735350">+91 91587 35350</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon">📍</span>
+              <div>
+                <span style="font-size: 0.78rem; display: block; color: var(--ink-muted);">LOCATION & RELOCATION</span>
+                <strong>Pune / Hyderabad / Bangalore (Open to Remote & Relocation)</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-social-box">
+            <h4>Let's Connect</h4>
+            <div class="social-links-grid">
+              <a href="https://www.behance.net/vitthalkolpe" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Behance Portfolio">
+                <strong>Bē</strong>
+              </a>
+              <a href="#" class="social-circle-link open-contact-modal" title="Framer Portfolio">
+                <strong>Fr</strong>
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="LinkedIn Profile">
+                <strong>in</strong>
+              </a>
+              <a href="mailto:vitthalkolpe.design@gmail.com" class="social-circle-link" title="Send Direct Email">
+                <strong>✉</strong>
+              </a>
+            </div>
+            <div style="margin-top: 24px;">
+              <button class="btn-primary-pill open-contact-modal" style="padding: 10px 22px; font-size: 0.88rem;">
+                <span>Send Quick Message</span>
+                <span>💬</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <p>© 2026 Vitthal Kolpe. All rights reserved. Crafted with care, user empathy & precision.</p>
+          <p>Portfolio designed with clean black & white ink + vibrant warm orange accents.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==========================================================================
+       CASE STUDY DETAIL VIEW CONTAINER
+       (Dynamically replaces the home view when a project card is clicked)
+       ========================================================================== -->
+  <div class="case-study-overlay" id="caseStudyContainer">
+    <!-- Populated dynamically via mockups.js / app.js -->
+  </div>
+
+  <!-- Toast Notification Bar -->
+  <div class="toast-notice" id="toastNotice">
+    <span>💡</span>
+    <span id="toastMessageText">Notification</span>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+      <h3>Let's Connect & Collaborate</h3>
+      <p>Have an open design role or project? Leave your details below and Vitthal will reach out within 24 hours.</p>
+      
+      <form id="contactForm">
+        <div class="contact-form-group">
+          <label for="contactName">Your Name / Company</label>
+          <input type="text" id="contactName" class="contact-input" placeholder="e.g. Sarah Jenkins / Acme Corp" required>
+        </div>
+        <div class="contact-form-group">
+          <label for="contactEmail">Work Email</label>
+          <input type="email" id="contactEmail" class="contact-input" placeholder="e.g. sarah@acme.com" required>
+        </div>
+        <div class="contact-form-group">
+          <label for="contactMessage">Project / Role Opportunity</label>
+          <textarea id="contactMessage" class="contact-textarea" rows="4" placeholder="Tell Vitthal about the role or project..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit-form">Send Message 🚀</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Resume Quick View Modal -->
+  <div class="modal-overlay" id="resumeModal">
+    <div class="modal-card" style="max-width: 680px; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close-btn" id="closeResumeModalBtn">&times;</button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <div>
+          <h3 style="margin-bottom: 2px;">Vitthal Kolpe — Resume</h3>
+          <span style="font-size: 0.85rem; color: var(--primary-orange); font-weight: 700;">Sr. UI/UX Designer • 6 Years Exp. • Immediate Joiner</span>
+        </div>
+        <button class="btn-primary-pill" onclick="window.print()" style="padding: 8px 16px; font-size: 0.8rem;">
+          <span>Print / PDF</span> 🖨️
+        </button>
+      </div>
+
+      <div style="font-size: 0.9rem; line-height: 1.6; border-top: 1px solid var(--border-light); padding-top: 16px;">
+        <h4 style="margin-bottom: 6px;">Profile Summary</h4>
+        <p style="margin-bottom: 16px; color: var(--ink-secondary);">
+          Creative and detail-oriented Senior UI/UX Designer with almost 6 years of experience crafting user-centric web and mobile interfaces. Skilled in the full UX process: user research, UX audits, wireframing, prototyping, design validation, and usability testing. Proficient across Telecom, Banking, E-Commerce, Healthcare, and Job Portals. Expert in Figma, AI prototyping (Lovable, Uizard, Stitch), and Material Design.
+        </p>
+
+        <h4 style="margin-bottom: 6px;">Experience Highlights</h4>
+        <div style="margin-bottom: 12px;">
+          <strong>Sr. UI/UX Designer</strong> | Telcovas Solutions and Services (Dec 2024 – Present)<br>
+          <span style="color: var(--ink-secondary);">Telecom VAS dashboards, real-time data monitoring cockpits, AI prototyping, design systems.</span>
+        </div>
+        <div style="margin-bottom: 12px;">
+          <strong>UI/UX Designer</strong> | Rabbit and Tortoise Technology (Dec 2021 – Sep 2024)<br>
+          <span style="color: var(--ink-secondary);">Fintech banking, 1-click e-commerce, AI job portal, entertainment apps.</span>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <strong>UI/UX Designer</strong> | Nio Stars Technology (Nov 2020 – Dec 2021)<br>
+          <span style="color: var(--ink-secondary);">End-to-end web & mobile UI design, wireframing, client discovery.</span>
+        </div>
+
+        <h4 style="margin-bottom: 6px;">Contact Information</h4>
+        <p style="color: var(--ink-secondary);">
+          Email: <a href="mailto:vitthalkolpe.design@gmail.com" style="color: var(--primary-orange); font-weight: 700;">vitthalkolpe.design@gmail.com</a><br>
+          Portfolio: <a href="https://www.behance.net/vitthalkolpe" target="_blank" style="color: var(--primary-orange); font-weight: 700;">behance.net/vitthalkolpe</a><br>
+          Phone: +91 91587 35350 | Locations: Pune, Hyderabad, Bangalore & Remote | Status: Immediate Joiner
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- High-Resolution Case Study Image & Full Board Lightbox Modal -->
+  <div class="modal-overlay image-lightbox-modal" id="imageLightboxModal" aria-hidden="true">
+    <div class="lightbox-card">
+      <div class="lightbox-header">
+        <div class="lightbox-title-wrap">
+          <span class="lightbox-badge">ILLUMINATI UX CASE STUDY</span>
+          <h4 id="lightboxTitle">Full-Resolution Infographic Board (640 × 11,003px)</h4>
+        </div>
+        <div class="lightbox-actions">
+          <a id="lightboxDownloadBtn" href="illuminati-case-study-full.png" download class="btn-lightbox-action" title="Download Image">
+            <span>Download</span> ⤓
+          </a>
+          <a id="lightboxFigmaBtn" href="https://www.figma.com/proto/wb2VKVQOIrrklh2lq9Q3k8/Portfolio?node-id=1140-4704&viewport=12%2C-279%2C0.05&t=LsVBBN7Mt9tKuXGj-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1001%3A2&page-id=0%3A1" target="_blank" rel="noopener noreferrer" class="btn-lightbox-action figma" title="Open Prototype in Figma">
+            <span>Figma Prototype</span> ↗
+          </a>
+          <button class="modal-close-btn lightbox-close" id="closeLightboxBtn" aria-label="Close Lightbox">&times;</button>
+        </div>
+      </div>
+      <div class="lightbox-body" id="lightboxBody">
+        <img id="lightboxImg" src="illuminati-case-study-full.png" alt="Illuminati UX Case Study High-Resolution Image" />
+      </div>
+      <div class="lightbox-footer">
+        <span>💡 Tip: Scroll vertically to explore the complete Ultra HD high-resolution design infographic. Designed by Vitthal Kolpe.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="projects-data.js"></script>
+  <script src="illustrations.js"></script>
+  <script src="mockups.js"></script>
+  <script src="app.js"></script>
+  <script src="cursor.js"></script>
+  <script src="preloader.js"></script>
+  <script>
+    // Bind Resume Modal
+    const resumeModal = document.getElementById('resumeModal');
+    const openResumeBtn = document.getElementById('btnOpenResumeModal');
+    const closeResumeBtn = document.getElementById('closeResumeModalBtn');
+    openResumeBtn?.addEventListener('click', () => resumeModal?.classList.add('active'));
+    closeResumeBtn?.addEventListener('click', () => resumeModal?.classList.remove('active'));
+    resumeModal?.addEventListener('click', (e) => {
+      if (e.target === resumeModal) resumeModal.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
