@@ -16,6 +16,18 @@
       "created_at": "2026-11-22T15:43:16.586Z",
       "sender": "ios",
       "is_cancelled": false
+    },
+    {
+      "id": "efb96f45-c585-40c0-b1ba-e5c92181a494",
+      "role": "user",
+      "content": "vitthal-1.vercel.app/ create this project",
+      "status": "pending",
+      "model": "gemini-3.8-flash-high",
+      "client_type": "gemini-bridge",
+      "parent_message_id": null,
+      "created_at": "2026-11-22T15:46:13.961Z",
+      "sender": "ios",
+      "is_cancelled": false
     }
   ]
 }
